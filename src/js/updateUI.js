@@ -62,9 +62,9 @@ export const aboutFan = function (country) {
 </header>
 <div class="level">
 <p class="text-grey-darker dark:text-gray-200 text-sm block"><strong>Currencies: </strong> ${Object.values(country.currencies)[0].name}</p>
- <p class="text-grey-darker dark:text-gray-200 text-sm block"><strong>Languages:</strong>  ${country.languages.bwg} </p>
+ <p class="text-grey-darker dark:text-gray-200 text-sm block"><strong>Languages:</strong>  ${Object.values(country.languages)} </p>
  <p class="text-grey-darker dark:text-gray-200 text-sm"><strong>Subregion
- :</strong>  ${country.subregion.name}</p>
+ :</strong>  ${country.subregion}</p>
 </div>
  </div>
   </section>`;
