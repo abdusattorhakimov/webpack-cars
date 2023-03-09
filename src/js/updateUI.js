@@ -1,71 +1,172 @@
-const card = document.querySelector(".card");
+const container = document.querySelector("#container");
+console.log(container);
 
-export const creatCountry = (countryes) => {
-  console.log(countryes);
-  card.innerHTML = "";
-  countryes.forEach((country) => {
-    console.log(country);
+export const wordFanction = (words) => {
+  console.log(words);
+  words.forEach((e) => {
+    console.log(e.meanings[0].partOfSpeech);
+    container.innerHTML += `
+    <section>
+          <ul class="mb-[40px] flex items-center justify-between">
+            <li>
+              <h1
+                class="text-[64px]  font-bold leading-{77px} text-[#2D2D2D] dark:text-[#ffffff]"
+              >
+                ${e.word}
+              </h1>
+              <p
+                class="text-[24px]  font-thin leading-{29px} text-[#A445ED]"
+              >
+                ${e.phonetic}
+              </p>
+            </li>
+            <li
+              class="mt-[40px] rounded-[50%] w-[75px] h-[75px] dark:bg-[rgba(164,69,237,0.25)] bg-[rgba(164,69,237,0.6)] flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="21"
+                fill="none"
+              >
+                <path
+                  fill="#A445ED"
+                  fill-rule="evenodd"
+                  d="M0 0v21l21-10.5L0 0Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </li>
+          </ul>
+          <ul>
+            <li class="flex gap-[20px] items-center">
+              <h3
+                class="text-[24px] font-sans font-bold leading-{29px} dark:text-[#ffffff] text-[#2D2D2D]"
+              >
+                <i> ${e.meanings[0].partOfSpeech}</i>
+              </h3>
+              <div class="w-[656px] h-[1px] dark:bg-[#3A3A3A] bg-[#E9E9E9]"></div>
+            </li>
+          </ul>
+          <p
+            class="mb-[25px] text-[20px] font-sans font-thin leading-{24px} text-[#757575]"
+          >
+            Meaning
+          </p>
+          <ul class="ml-[23px] mb-[64px]">
+            <li class="mb-[13px] flex gap-[20px] rounded-[100%]">
+              <span
+                class="mt-[13px] w-[7px] h-[7px] bg-[#8F19E8] rounded-[100%]"
+              ></span>
 
-    card.innerHTML += `<div id="card" class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-   <!-- Article -->
-   <article class="overflow-hidden rounded-lg shadow-lg">
-       <a href="./about.html?country=${country.name.common}">
-       <img
-         alt="Placeholder"
-         class="block h-52 w-full"
-         src="${country.flags.svg}"
-       />
-     </a>
+              <p
+                class="text-[18px] font-thin leading-{24px} dark:text-[#ffffff] text-[#2D2D2D]"
+              >
+                ${e.meanings[0].definitions[0].definition} 
+              </p>
+            </li>
+            <li class="mb-[13px] flex gap-[20px]">
+              <div class="mt-[11px]">
+                <span
+                  class="w-[7px] h-[7px] block bg-[#8F19E8] rounded-[100%]"
+                ></span>
+              </div>
+              <p
+                class="text-[18px]  font-thin leading-{24px} dark:text-[#ffffff] text-[#2D2D2D]"
+              >
+              ${e.meanings[0].definitions[1].definition} 
+              </p>
+            </li>
+            <li class="mb-[13px] flex gap-[20px]">
+              <div class="mt-[11px]">
+                <span
+                  class="w-[7px] h-[7px] block bg-[#8F19E8] rounded-[100%]"
+                ></span>
+              </div>
+              <p
+                class="text-[18px]  font-thin leading-{24px} dark:text-[#ffffff] text-[#2D2D2D]"
+              >
+              ${e.meanings[0].definitions[2].definition} 
+              </p>
+            </li>
+          </ul>
+          <ul class="flex gap-[22px] mb-[40px]">
+            <li>
+              <p
+                class="text-[20px]  font-bold leading-{24px} text-[#757575]"
+              >
+                Synonyms
+              </p>
+            </li>
+            <li>
+              <p
+                class="text-[20px]  font-bold leading-{24px} text-[#A445ED]"
+              >
+              ${e.meanings[0].synonyms} 
+              </p>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li class="flex gap-[20px] items-center mb-[40px]">
+              <h3
+                class=" dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D]"
+              >
+                <i>${e.meanings[1].partOfSpeech}  </i>
+              </h3>
+              <div class="w-[656px] dark:bg-[#3A3A3A] h-[1px] bg-[#E9E9E9]"></div>
+            </li>
+          </ul>
+          <p
+            class="mb-[25px] text-[20px]  font-thin leading-{24px} text-[#757575]"
+          >
+            Meaning
+          </p>
+          <ul class="ml-[23px] mb-[40px]">
+            <li
+              class="mb-[20px] flex gap-[20px] text-[18px]  font-thin leading-{24px} text-[#2D2D2D]"
+            >
+              <span
+                class="mt-[11px] w-[7px] h-[7px] block bg-[#8F19E8] rounded-[100%]"
+              ></span>
+              <p class="dark:text-[#ffffff]">${e.meanings[1].definitions[0].definition} <br>
 
-     <header
-       class=" items-center justify-between leading-tight p-2 md:p-4"
-     >
-       <h1 id="cardTitle" class=" dark:text-gray-200 text-lg no-underline hover:underline text-black">
-     <strong> ${country.name.common}</strong></p>
-       </h1>
-       <p class="text-grey-darker dark:text-gray-200 text-sm block"><strong>Populition: </strong> ${country.population}</p>
-       <p class="text-grey-darker dark:text-gray-200 text-sm block"><strong>Region:</strong>  ${country.region} </p>
-       <p class="text-grey-darker dark:text-gray-200 text-sm"><strong>Capital:</strong>  ${country.capital}</p>
-     </header>
-   </article>
-   <!-- END Article -->
- </div>`;
+              <span class="dark:text-[#353333]">${e.meanings[1].definitions[0].example}</span>
+              </p>
+              
+            </li>
+          </ul>
+          <div class="w-[656px] h-[1px] dark:bg-[#3A3A3A] bg-[#E9E9E9] mb-[20px]"></div>
+          <ul class="flex pb-[120px] gap-[20px]">
+            <li class="underline">
+              <a
+                class="pb-[4px] text-[14px] font-sans font-thin leading-{17px} text-[#757575]"
+                href=""
+                >Source</a
+              >
+            </li>
+            <li class="underline flex gap-[20px] items-center">
+              <a
+                class="dark:text-[#ffffff] px-[4px] text-[14px] font-sans font-thin leading-{17px} text-[#2D2D2D]"
+                href="${e.sourceUrls[0]}"
+                >${e.sourceUrls[0]}</a
+              >
+              <a href=""
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  fill="none"
+                >
+                  <path
+                    fill="#757575"
+                    d="M6.09 4.295a.75.75 0 0 0 0-1.5v1.5Zm-4.664-.324.53.53-.53-.53Zm0 8.603.53-.53-.53.53Zm9.778-4.665a.75.75 0 1 0-1.5 0h1.5Zm-6.37.197a.75.75 0 1 0 1.06 1.06l-1.06-1.06Zm8.333-6.212a.75.75 0 1 0-1.061-1.06l1.06 1.06Zm-.53.22a.75.75 0 0 0 0-1.5v1.5ZM9 .614a.75.75 0 0 0 0 1.5v-1.5Zm4.386.75a.75.75 0 0 0-1.5 0h1.5ZM11.886 5a.75.75 0 1 0 1.5 0h-1.5ZM6.091 2.795H2.455v1.5H6.09v-1.5Zm-3.636 0c-.585 0-1.146.233-1.56.646l1.061 1.06a.704.704 0 0 1 .499-.206v-1.5Zm-1.56.646A2.204 2.204 0 0 0 .25 5h1.5c0-.187.074-.366.206-.498l-1.06-1.06ZM.25 5v6.546h1.5V5H.25Zm0 6.546c0 .584.232 1.145.646 1.558l1.06-1.06a.705.705 0 0 1-.206-.498H.25Zm.646 1.558c.413.414.974.646 1.559.646v-1.5a.705.705 0 0 1-.499-.206l-1.06 1.06Zm1.559.646H9v-1.5H2.455v1.5Zm6.545 0c.585 0 1.145-.232 1.559-.646l-1.06-1.06A.704.704 0 0 1 9 12.25v1.5Zm1.559-.646c.413-.413.646-.974.646-1.558h-1.5a.704.704 0 0 1-.207.498l1.06 1.06Zm.646-1.558V7.909h-1.5v3.637h1.5Zm-5.311-2.38 7.273-7.272-1.061-1.06-7.273 7.272 1.061 1.06ZM12.636.615H9v1.5h3.636v-1.5Zm-.75.75V5h1.5V1.364h-1.5Z"
+                  /></svg
+              ></a>
+            </li>
+          </ul>
+        </section>
+    `;
   });
-};
-
-// About pages
-const cardpage = document.querySelector("#about-card");
-console.log();
-export const aboutFan = function (country) {
-  console.log(country);
-  console.log();
-  cardpage.innerHTML += `<section class="flex  justify-between mt-14 flex-wrap gap-14">
-  <a href="./about.html ">
-    <img class="w-[600px] h-[400px]"
-      alt="Placeholder"
-      class="block h-52 w-full"
-      src="${country.flags.png}"
-      width="600"
-      height="700"
-    />
-  </a>
- <div class="title-div flex items-center justify-between gap-12 flex-wrap">
-  <header
- class=" items-center justify-between leading-tight p-2 md:p-4"
->
- <h1 id="cardTitle" class=" dark:text-gray-200 text-lg no-underline hover:underline text-black">
-<strong> ${country.name.common}</strong></p>
- </h1>
- <p class="text-grey-darker  dark:text-gray-200 text-sm block"><strong>Populition: </strong> ${country.population}</p>
- <p class="text-grey-darker dark:text-gray-200 text-sm block"><strong>Region:</strong>  ${country.region} </p>
- <p class="text-grey-darker dark:text-gray-200 text-sm"><strong>Capital:</strong>  ${country.capital}</p>
-</header>
-<div class="level">
-<p class="text-grey-darker dark:text-gray-200 text-sm block"><strong>Currencies: </strong> ${Object.values(country.currencies)[0].name}</p>
- <p class="text-grey-darker dark:text-gray-200 text-sm block"><strong>Languages:</strong>  ${Object.values(country.languages)} </p>
- <p class="text-grey-darker dark:text-gray-200 text-sm"><strong>Subregion
- :</strong>  ${country.subregion}</p>
-</div>
- </div>
-  </section>`;
 };

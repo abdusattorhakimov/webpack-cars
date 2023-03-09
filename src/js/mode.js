@@ -6,6 +6,7 @@ if (mode) {
 }
 buttom.addEventListener("click", () => {
   body.classList.toggle("dark");
+  
   localStorage.getItem("mode")
     ? localStorage.setItem("mode", "")
     : localStorage.setItem("mode", "dark");

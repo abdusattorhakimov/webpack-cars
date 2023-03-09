@@ -1,15 +1,18 @@
 import "../css/style.css";
 
-// console.log("main js");
+console.log("main js");
+
 import request from "./request";
-import { creatCountry } from "./updateUI";
+import "./updateUI";
 import "./filter";
 import "./loder";
-import "./mode"
-const API = "https://restcountries.com/v3.1/all";
+import "./mode";
+import { wordFanction } from "./updateUI";
+const API = "https://api.dictionaryapi.dev/api/v2/entries/en/keyboard";
 request(API)
   .then((data) => {
-    creatCountry(data);
+    console.log(data);
+    wordFanction(data);
   })
   .catch((err) => {
     console.log(err);

@@ -5,8 +5,6 @@ module.exports = {
     mode: "development",
     entry: {
         main: path.resolve(__dirname, './src/js/main.js'),
-        about: path.resolve(__dirname, './src/js/about.js')
-
     },
     output : {
         path: path.resolve(__dirname, 'public'),
@@ -26,16 +24,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: "Car Racing",
+            title: "dictionary | Exsemen",
             template: "./src/indexTemp.html",
             filename: 'index.html',
             chunks: ['main']
-        }),
-        new HtmlWebpackPlugin({
-            title: "about | page",
-            template: "./src/page/aboutTemp.html",
-            filename: 'about.html',
-            chunks: ['about']
         }),
     ],
     module: {
