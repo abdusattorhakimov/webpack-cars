@@ -7,26 +7,26 @@ export const wordFanction = (words) => {
     console.log(e.meanings[0].partOfSpeech);
     container.innerHTML += `
     <section>
-          <ul class="mb-[40px] flex items-center justify-between">
+          <ul class="mb-[40px] max-sm:mb-[29px] flex items-center justify-between">
             <li>
               <h1
-                class="text-[64px]  font-bold leading-{77px} text-[#2D2D2D] dark:text-[#ffffff]"
+                class="text-[64px] max-sm:text-[32px] max-sm:leading-[39px] font-bold leading-[77px]  text-[#2D2D2D] dark:text-[#ffffff]"
               >
                 ${e.word}
               </h1>
               <p
-                class="text-[24px]  font-thin leading-{29px} text-[#A445ED]"
+                class="text-[24px] max-sm:text-[18px] max-sm:leading-[24px]  font-thin leading-[29px] text-[#A445ED]"
               >
                 ${e.phonetic}
               </p>
             </li>
             <li
-              class="mt-[40px] rounded-[50%] w-[75px] h-[75px] dark:bg-[rgba(164,69,237,0.25)] bg-[rgba(164,69,237,0.6)] flex items-center justify-center"
+              class="mt-[40px] rounded-[50%] max-sm:w-[48px] max-sm:h-[48px] w-[75px] h-[75px] dark:bg-[rgba(164,69,237,0.25)] bg-[rgba(164,69,237,0.6)] flex items-center justify-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="21"
-                height="21"
+                width="20"
+                height="20" 
                 fill="none"
               >
                 <path
@@ -41,7 +41,7 @@ export const wordFanction = (words) => {
           <ul>
             <li class="flex gap-[20px] items-center">
               <h3
-                class="text-[24px] font-sans font-bold leading-{29px} dark:text-[#ffffff] text-[#2D2D2D]"
+                class=" max-sm:text-[18px] max-sm:leading-[22px] text-[24px] font-sans font-bold leading-[29px] dark:text-[#ffffff] text-[#2D2D2D]"
               >
                 <i> ${e.meanings[0].partOfSpeech}</i>
               </h3>
@@ -49,18 +49,18 @@ export const wordFanction = (words) => {
             </li>
           </ul>
           <p
-            class="mb-[25px] text-[20px] font-sans font-thin leading-{24px} text-[#757575]"
+            class=" max-sm:mb-[17px] max-sm:text-[16px] max-sm:leading-[19px] mb-[25px] text-[20px] font-sans font-thin leading-[24px] text-[#757575]"
           >
             Meaning
           </p>
-          <ul class="ml-[23px] mb-[64px]">
+          <ul class="max-sm:ml-[0px] max-sm:mb-[20px] ml-[23px] mb-[64px]">
             <li class="mb-[13px] flex gap-[20px] rounded-[100%]">
               <span
                 class="mt-[13px] w-[7px] h-[7px] bg-[#8F19E8] rounded-[100%]"
               ></span>
 
               <p
-                class="text-[18px] font-thin leading-{24px} dark:text-[#ffffff] text-[#2D2D2D]"
+                class=" max-sm:text-[15px]  text-[18px] font-thin leading-[24px] dark:text-[#ffffff] text-[#2D2D2D]"
               >
                 ${e.meanings[0].definitions[0].definition} 
               </p>
@@ -72,7 +72,7 @@ export const wordFanction = (words) => {
                 ></span>
               </div>
               <p
-                class="text-[18px]  font-thin leading-{24px} dark:text-[#ffffff] text-[#2D2D2D]"
+                class=" max-sm:text-[15px] text-[18px]  font-thin leading-{24px} dark:text-[#ffffff] text-[#2D2D2D]"
               >
               ${e.meanings[0].definitions[1].definition} 
               </p>
@@ -84,23 +84,23 @@ export const wordFanction = (words) => {
                 ></span>
               </div>
               <p
-                class="text-[18px]  font-thin leading-{24px} dark:text-[#ffffff] text-[#2D2D2D]"
+                class="max-sm:text-[15px] text-[18px]  font-thin leading-[24px] dark:text-[#ffffff] text-[#2D2D2D]"
               >
               ${e.meanings[0].definitions[2].definition} 
               </p>
             </li>
           </ul>
-          <ul class="flex gap-[22px] mb-[40px]">
+          <ul class="flex gap-[22px] max-sm:mb-[33px] mb-[40px]">
             <li>
               <p
-                class="text-[20px]  font-bold leading-{24px} text-[#757575]"
+                class="max-sm:text-[16px] max-sm:leading-[19px] text-[20px]  font-bold leading-[24px] text-[#757575]"
               >
                 Synonyms
               </p>
             </li>
             <li>
               <p
-                class="text-[20px]  font-bold leading-{24px} text-[#A445ED]"
+                class="max-sm:text-[16px] max-sm:leading-[19px] text-[20px]  font-bold leading-[4px] text-[#A445ED]"
               >
               ${e.meanings[0].synonyms} 
               </p>
@@ -109,9 +109,9 @@ export const wordFanction = (words) => {
         </section>
         <section>
           <ul>
-            <li class="flex gap-[20px] items-center mb-[40px]">
+            <li class="max-sm:mb-[31px] flex gap-[20px] items-center mb-[40px]">
               <h3
-                class=" dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D]"
+                class="max-sm:text-[18px] max-sm:leading-[22px] dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D]"
               >
                 <i>${e.meanings[1].partOfSpeech}  </i>
               </h3>
@@ -119,36 +119,36 @@ export const wordFanction = (words) => {
             </li>
           </ul>
           <p
-            class="mb-[25px] text-[20px]  font-thin leading-{24px} text-[#757575]"
+            class="max-sm:mb-[17px] mb-[25px] text-[20px]  font-thin leading-{24px} text-[#757575]"
           >
             Meaning
           </p>
-          <ul class="ml-[23px] mb-[40px]">
+          <ul class="max-sm:mb-[32px] ml-[23px] mb-[40px]">
             <li
               class="mb-[20px] flex gap-[20px] text-[18px]  font-thin leading-{24px} text-[#2D2D2D]"
             >
               <span
                 class="mt-[11px] w-[7px] h-[7px] block bg-[#8F19E8] rounded-[100%]"
               ></span>
-              <p class="dark:text-[#ffffff]">${e.meanings[1].definitions[0].definition} <br>
+              <p class="max-sm:text-[15px]  dark:text-[#ffffff]">${e.meanings[1].definitions[0].definition} <br>
 
-              <span class="dark:text-[#353333]">${e.meanings[1].definitions[0].example}</span>
+              <span class= "max-sm:text-[15px] dark:text-[#353333]">${e.meanings[1].definitions[0].example}</span>
               </p>
               
             </li>
           </ul>
-          <div class="w-[656px] h-[1px] dark:bg-[#3A3A3A] bg-[#E9E9E9] mb-[20px]"></div>
-          <ul class="flex pb-[120px] gap-[20px]">
+          <div class= "max-sm:mb-[24px] w-[656px] h-[1px] dark:bg-[#3A3A3A] bg-[#E9E9E9] mb-[20px]"></div>
+          <ul class="flex pb-[120px] gap-[20px] max-sm:flex-none max-sm:flex-col">
             <li class="underline">
               <a
-                class="pb-[4px] text-[14px] font-sans font-thin leading-{17px} text-[#757575]"
+                class="max-sm:text-[14px] max-sm:leading-[17px] pb-[4px] text-[14px] font-sans font-thin leading-{17px} text-[#757575]"
                 href=""
                 >Source</a
               >
             </li>
             <li class="underline flex gap-[20px] items-center">
               <a
-                class="dark:text-[#ffffff] px-[4px] text-[14px] font-sans font-thin leading-{17px} text-[#2D2D2D]"
+                class="max-sm:text-[14px] max-sm:leading-[17px] dark:text-[#ffffff] px-[4px] text-[14px] font-sans font-thin leading-{17px} text-[#2D2D2D]"
                 href="${e.sourceUrls[0]}"
                 >${e.sourceUrls[0]}</a
               >

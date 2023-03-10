@@ -13,12 +13,12 @@
     />
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body class="h-full bg-[#F2F2F2]  font-[sans-serif]">
-    <header class="pt-[58px] pb-[51.5px] dark:bg-[#0a0909]">
+  <body class="h-full bg-[#F2F2F2] font-[sans-serif] overflow-x-hidden">
+    <header class="pt-[58px]   pb-[51.5px] max-sm:pt-[24px] max-sm:pb-[24px] dark:bg-[#0a0909]">
       <div
-        class="container max-w-[736px] m-auto px-[70px] flex items-center justify-between"
+        class="container max-w-[856px] max-md:px-[40px]  max-sm:px-[24px] mr-auto ml-auto px-[60px] flex items-center justify-between"
       >
-        <a class="" href="./index.html">
+        <a class="max-sm:w-28px max-sm:h-[32px]" href="./index.html">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -47,18 +47,20 @@
         <nav class="flex items-center">
           <select
             id="countries"
-            class="mr-[26px] bg-[#F2F2F2] dark:bg-[#0a0909] border-none dark:text-[#FFFFFF] rounded-[10px] block w-[118px] h-[24px]"
+            class="mr-[26px] max-sm:mr-[16px] bg-[#F2F2F2] dark:bg-[#0a0909] border-none dark:text-[#FFFFFF] rounded-[10px] block w-[118px] h-[24px]"
           >
             <option class="option" value="sans">Sans Serif</option>
             <option class="option" value="serif">Serif</option>
             <option class="option" value="mono">Mono</option>
           </select>
-          <div class="w-[1px] h-[32px] dark:bg-[#3A3A3A] bg-[#E9E9E9] mr-[26px]"></div>
+          <div
+            class="w-[1px] h-[32px] dark:bg-[#3A3A3A] bg-[#E9E9E9] max-sm:mr-[16px] mr-[26px]"
+          ></div>
           <div
             id="button"
-            class="mr-[20px] dark:bg-[#A445ED] p-[3px] w-[40px] h-[20px] bg-[#757575] rounded-[10px]"
+            class="mr-[20px] max-sm:mr-[12px] dark:bg-[#A445ED] p-[3px] w-[40px] h-[20px] bg-[#757575] rounded-[10px]"
           >
-            <div class="w-[14px] h-[14px]  bg-[#ffffff] rounded-[50%]"></div>
+            <div class="w-[14px] h-[14px] bg-[#ffffff] rounded-[50%]"></div>
           </div>
           <a class="" href="">
             <svg
@@ -82,14 +84,13 @@
       </div>
     </header>
     <main class="dark:bg-[#0a0909]">
-      <div id="container" class="container max-w-[736px] m-auto px-[70px]">
-        <form class="mb-[45px]">
-         
+      <div id="container" class="container max-md:px-[40px]  max-sm:px-[24px] max-w-[856px] mr-auto ml-auto px-[60px] relative">
+        <form class="mb-[45px] max-sm:mb-[24px]">
           <div class="relative">
             <input
               type="search"
-              id="default-search"
-              class="dark:bg-[#1F1F1F] dark:border-none block w-full px-[24px] py-[20px] text-sm text-gray-900 border border-gray-300 rounded-[16px] bg-[#F4F4F4] dark:border-gray-600 dark:placeholder-[#FFFFFF] dark:text-[#FFFFFF]"
+              id="input-search"
+              class="dark:bg-[#1F1F1F] dark:border-none block w-full max-sm:py-[15px] px-[24px] py-[20px] text-sm text-gray-900 border border-gray-300 rounded-[16px] bg-[#F4F4F4] dark:border-gray-600 dark:placeholder-[#FFFFFF] dark:text-[#FFFFFF]"
               placeholder="keyboard"
               required
             />
@@ -114,6 +115,21 @@
             </div>
           </div>
         </form>
+        <!-- //loder
+        <div
+          id="loder"
+          class="flex items-center justify-center fixed top-0 bottom-0 right-0 left-0 bg-slate-400"
+        >
+          <div
+            class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            role="status"
+          >
+            <span
+              class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+              >Loading....</span
+            >
+          </div>
+        </div> -->
       </div>
     </main>
   </body>
