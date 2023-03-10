@@ -108,8 +108,8 @@ export const wordFanction = (words) => {
           </ul>
         </section>
         <section>
-          <ul>
-            <li class="max-sm:mb-[31px] flex gap-[20px] items-center mb-[40px]">
+          <ul >
+            <li class=" flex gap-[20px] items-center">
               <h3
                 class="max-sm:text-[18px] max-sm:leading-[22px] dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D]"
               >
@@ -119,7 +119,7 @@ export const wordFanction = (words) => {
             </li>
           </ul>
           <p
-            class="max-sm:mb-[17px] mb-[25px] text-[20px]  font-thin leading-{24px} text-[#757575]"
+            class="max-sm:mt-[31px]  mt-[40px] max-sm:mb-[17px] mb-[25px] text-[20px]  font-thin leading-{24px} text-[#757575]"
           >
             Meaning
           </p>
