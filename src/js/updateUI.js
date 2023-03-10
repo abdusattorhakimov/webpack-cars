@@ -138,7 +138,7 @@ export const wordFanction = (words) => {
             </li>
           </ul>
           <div class= "max-sm:mb-[24px]  max-w-[656px] h-[1px] dark:bg-[#3A3A3A] bg-[#E9E9E9] mb-[20px]"></div>
-          <ul class="flex pb-[120px] gap-[20px] max-sm:flex-none max-sm:flex-col">
+          <ul class="flex pb-[120px] max-sm:pb-[85px] gap-[20px] max-sm:flex-none max-sm:flex-col">
             <li class="underline">
               <a
                 class="max-sm:text-[14px] max-sm:leading-[17px] pb-[4px] text-[14px] font-sans font-thin leading-{17px} text-[#757575]"
