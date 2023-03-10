@@ -108,7 +108,7 @@ export const wordFanction = (words) => {
           </ul>
         </section>
         <section>
-          <ul max-sm:mt-[31px]  mt-[40px] >
+          <ul class="max-sm:mt-[31px]  mt-[40px] bg-black" >
             <li class=" flex gap-[20px] items-center">
               <h3
                 class="max-sm:text-[18px] max-sm:leading-[22px] dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D]"
