@@ -3,9 +3,9 @@ console.log(container);
 
 export const wordFanction = (words) => {
   console.log(words);
-  words.forEach((e) => {
-    console.log(e.meanings[0].partOfSpeech);
-    container.innerHTML += `
+  words &&
+    words.forEach((e) => {
+      container.innerHTML += `
     <section>
           <ul class="mb-[40px] max-sm:mb-[29px] flex items-center justify-between">
             <li>
@@ -102,24 +102,24 @@ export const wordFanction = (words) => {
               <p
                 class="max-sm:text-[16px] max-sm:leading-[19px] text-[20px]  font-bold leading-[4px] text-[#A445ED]"
               >
-              ${e.meanings[0].synonyms} 
+              ${e.meanings[0].synonyms}   
               </p>
             </li>
           </ul>
         </section>
         <section>
-          <ul >
+          <ul max-sm:mt-[31px]  mt-[40px] >
             <li class=" flex gap-[20px] items-center">
               <h3
                 class="max-sm:text-[18px] max-sm:leading-[22px] dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D]"
               >
-                <i>${e.meanings[1].partOfSpeech}  </i>
+                <i>${e.meanings[0].partOfSpeech}  </i>
               </h3>
               <div class="w-[656px] dark:bg-[#3A3A3A] h-[1px] bg-[#E9E9E9]"></div>
             </li>
           </ul>
           <p
-            class="max-sm:mt-[31px]  mt-[40px] max-sm:mb-[17px] mb-[25px] text-[20px]  font-thin leading-{24px} text-[#757575]"
+            class=" max-sm:mb-[17px] mb-[25px] text-[20px]  font-thin leading-{24px} text-[#757575]"
           >
             Meaning
           </p>
@@ -130,9 +130,9 @@ export const wordFanction = (words) => {
               <span
                 class="mt-[11px] w-[7px] h-[7px] block bg-[#8F19E8] rounded-[100%]"
               ></span>
-              <p class="max-sm:text-[15px]  dark:text-[#ffffff]">${e.meanings[1].definitions[0].definition} <br>
+              <p class="max-sm:text-[15px]  dark:text-[#ffffff]">${e.meanings[0].definitions[0].definition} <br>
 
-              <span class= "max-sm:text-[15px] dark:text-[#353333]">${e.meanings[1].definitions[0].example}</span>
+              <span class= "max-sm:text-[15px] dark:text-[#353333]">${e.meanings[0].definitions[0].example}</span>
               </p>
               
             </li>
@@ -168,5 +168,5 @@ export const wordFanction = (words) => {
           </ul>
         </section>
     `;
-  });
+    });
 };

@@ -1,14 +1,12 @@
 import "../css/style.css";
 
-console.log("main js");
-
 import request from "./request";
 import "./updateUI";
 import "./filter";
 import "./loder";
 import "./mode";
 import { wordFanction } from "./updateUI";
-const API = "https://api.dictionaryapi.dev/api/v2/entries/en/keyboard";
+let API = "https://api.dictionaryapi.dev/api/v2/entries/en/life";
 request(API)
   .then((data) => {
     console.log(data);
@@ -18,3 +16,6 @@ request(API)
     console.log(err);
   });
 
+const formm = document.querySelector("#input-search");
+const input = document.querySelector("#input");
+console.log(formm, input);

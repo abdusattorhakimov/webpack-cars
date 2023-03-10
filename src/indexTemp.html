@@ -14,9 +14,11 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body class="h-full bg-[#F2F2F2] font-[sans-serif] overflow-x-hidden">
-    <header class="pt-[58px]   pb-[51.5px] max-sm:pt-[24px] max-sm:pb-[24px] dark:bg-[#0a0909]">
+    <header
+      class="pt-[58px] pb-[51.5px] max-sm:pt-[24px] max-sm:pb-[24px] dark:bg-[#0a0909]"
+    >
       <div
-        class="container max-w-[856px] max-md:px-[40px]  max-sm:px-[24px] mr-auto ml-auto px-[60px] flex items-center justify-between"
+        class="container max-w-[856px] max-md:px-[40px] max-sm:px-[24px] mr-auto ml-auto px-[60px] flex items-center justify-between"
       >
         <a class="max-sm:w-28px max-sm:h-[32px]" href="./index.html">
           <svg
@@ -47,18 +49,33 @@
         <nav class="flex items-center">
           <select
             id="countries"
-            class="mr-[26px] max-sm:mr-[16px] bg-[#F2F2F2] dark:bg-[#0a0909] border-none dark:text-[#FFFFFF] rounded-[10px] block w-[118px] h-[24px]"
+            class="mr-[26px] max-sm:mr-[16px] bg-[#F2F2F2] dark:bg-[#0a0909] dark:hover:text-[rgba(164,69,237,1)] hover:text-[rgba(164,69,237,1)] border-none dark:text-[#FFFFFF] rounded-[10px] block w-[118px] h-[24px]"
           >
-            <option class="option" value="sans">Sans Serif</option>
-            <option class="option" value="serif">Serif</option>
-            <option class="option" value="mono">Mono</option>
+            <option
+              class="option dark:hover:text-[rgba(164,69,237,1)] hover:text-[rgba(164,69,237,1)] font-[sans-serif]"
+              value="sans"
+            >
+              Sans Serif
+            </option>
+            <option
+              class="option dark:hover:text-[rgba(164,69,237,1)] hover:text-[rgba(164,69,237,1)] font-serif"
+              value="serif"
+            >
+              Serif
+            </option>
+            <option
+              class="option dark:hover:text-[rgba(164,69,237,1)] hover:text-[rgba(164,69,237,1)] font-mono"
+              value="mono"
+            >
+              Mono
+            </option>
           </select>
           <div
             class="w-[1px] h-[32px] dark:bg-[#3A3A3A] bg-[#E9E9E9] max-sm:mr-[16px] mr-[26px]"
           ></div>
           <div
             id="button"
-            class="mr-[20px] max-sm:mr-[12px] dark:bg-[#A445ED] p-[3px] w-[40px] h-[20px] bg-[#757575] rounded-[10px]"
+            class="mr-[20px] max-sm:mr-[12px] dark:bg-[#A445ED] p-[3px] dark:pl-[25px] w-[40px] h-[20px] bg-[#757575] rounded-[10px]"
           >
             <div class="w-[14px] h-[14px] bg-[#ffffff] rounded-[50%]"></div>
           </div>
@@ -83,17 +100,20 @@
         </nav>
       </div>
     </header>
-    <main class="dark:bg-[#0a0909]">
-      <div id="container" class="container max-md:px-[40px]  max-sm:px-[24px] max-w-[856px] mr-auto ml-auto px-[60px] relative">
-        <form class="mb-[45px] max-sm:mb-[24px]">
+    <main class="dark:bg-[#0a0909] min-h-full">
+      <div
+        id="container"
+        class="container max-md:px-[40px] max-sm:px-[24px] max-w-[856px] mr-auto ml-auto px-[60px] relative"
+      >
+        <form id="input-search" class="mb-[45px] max-sm:mb-[24px]">
           <div class="relative">
             <input
-              type="search"
-              id="input-search"
+              id="input"
               class="dark:bg-[#1F1F1F] dark:border-none block w-full max-sm:py-[15px] px-[24px] py-[20px] text-sm text-gray-900 border border-gray-300 rounded-[16px] bg-[#F4F4F4] dark:border-gray-600 dark:placeholder-[#FFFFFF] dark:text-[#FFFFFF]"
               placeholder="keyboard"
               required
             />
+            <button id="buttons" type="submit">salom</button>
             <div
               class="absolute inset-y-0 right-0 pr-[24px] flex items-center pl-3 pointer-events-none"
             >
@@ -115,6 +135,7 @@
             </div>
           </div>
         </form>
+
         <!-- //loder
         <div
           id="loder"
