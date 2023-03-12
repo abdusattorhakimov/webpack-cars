@@ -1,11 +1,11 @@
 import "./filter";
-
-const container = document.querySelector(".maincontainer");
+import request from "./request";
+let conta = document.querySelector(".maincontainer");
+let input = document.querySelector("#input");
 
 const wordFanction = (data) => {
   console.log(data);
   const { word, meanings, sourceUrls } = data[0];
-  console.log(sourceUrls[0]);
 
   let audio;
   let text;
@@ -30,7 +30,7 @@ const wordFanction = (data) => {
     }
   });
   console.log(synonyms);
-  container.innerHTML = `
+  conta.innerHTML = `
     <section>
           <ul class="mb-[40px] max-sm:mb-[29px] flex items-center justify-between">
             <li>
@@ -72,7 +72,7 @@ const wordFanction = (data) => {
           <ul>
             <li class="flex gap-[20px] items-center">
               <h3
-                class=" max-sm:text-[18px] max-sm:leading-[22px] text-[24px] font-sans font-bold leading-[29px] dark:text-[#ffffff] text-[#2D2D2D]"
+                class=" mb-[40px] max-sm:mb-[31px] max-sm:text-[18px] max-sm:leading-[22px]  text-[24px] font-sans font-bold leading-[29px] dark:text-[#ffffff] text-[#2D2D2D]"
               >
                 <i>    none         </i>
               </h3>
@@ -99,7 +99,7 @@ const wordFanction = (data) => {
               </li>`;
           })}
           </ul>
-          <ul class="flex gap-[22px] max-sm:mb-[33px] mb-[40px]">
+          <ul class="flex gap-[22px] max-sm:mb-[33px] mb-[40px] items-center">
             <li>
               <p
                 class="max-sm:text-[16px] max-sm:leading-[19px] text-[20px]  font-bold leading-[24px] text-[#757575]"
@@ -111,7 +111,7 @@ const wordFanction = (data) => {
               console.log(item);
               return ` 
               <li class="flex gap-1">
-              <p
+              <p id="sinonim"
               class="max-sm:text-[16px] max-sm:leading-[19px] text-[20px]  fl font-bold leading-[4px] text-[#A445ED]"
             >
             ${item ? item : ""}
@@ -127,7 +127,7 @@ const wordFanction = (data) => {
           <ul class="max-sm:pt-[31px]  pt-[40px] " >
             <li class=" flex gap-[20px] items-center">
               <h3
-                class="max-sm:text-[18px] max-sm:leading-[22px] dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D]"
+                class=" mb-[40px] max-sm:mb-[31px] max-sm:text-[18px] max-sm:leading-[22px] dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D] mb-10"
               >
                 <i> verb </i>
               </h3>
@@ -140,8 +140,10 @@ const wordFanction = (data) => {
             Meaning
           </p>
           <ul class="max-sm:mb-[32px] ml-[23px] mb-[40px]">
-          ${verb.slice(0, 3).map((item) => {
-            return `<li
+          ${
+            verb &&
+            verb.slice(0, 3).map((item) => {
+              return `<li
             class="mb-[20px] flex gap-[20px] text-[18px]  font-thin leading-{24px} text-[#2D2D2D]"
           >
             <span
@@ -155,7 +157,8 @@ const wordFanction = (data) => {
             </p>
             
           </li>`;
-          })}
+            })
+          }
           </ul>
           <div class= "max-sm:mb-[24px]  max-w-[656px] h-[1px] dark:bg-[#3A3A3A] bg-[#E9E9E9] mb-[20px]"></div>
           <ul class="flex pb-[120px] max-sm:pb-[85px] gap-[20px] max-sm:flex-none max-sm:flex-col">
@@ -190,8 +193,48 @@ const wordFanction = (data) => {
     `;
   const audioEl = document.querySelector("#adiobtn");
   const audioo = document.querySelector("audio");
-  audioEl.addEventListener("click", (e) => {
-    audioo.play();
-  });
+  const sinonim = document.querySelector("#sinonim");
+  audioEl &&
+    audioEl.addEventListener("click", (e) => {
+      audioo.play();
+    });
+  sinonim &&
+    sinonim.addEventListener("click", () => {
+      request(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${sinonim.textContent}`
+      )
+        .then((data) => {
+          wordFanction(data);
+        })
+        .catch((err) => {
+          conta.innerHTML = ` <div id="errorDiv" class="text-center pt-[132px] max-sm:pt-[60px]">
+      <span  class=" text-center w-[64px] h-[64px] max-sm:w-[44px] max-sm:h-[44px] mb-[44px] max-sm:mb-[24px]">🙂</span>
+      <h4
+        class="mb-[24px] max-sm:mb-[14px] max-sm:text-[18px] max-sm:leading-[22px] text-[20px] font-sans font-bold leading-[24px] dark:text-[#ffffff] text-[#2D2D2D]"
+      >
+        No Definitions Found
+      </h4>
+      <p
+        class="mb-[24px] max-sm:mb-[14px] max-sm:text-[14px] max-sm:leading-[20px] text-[18px] font-sans font-bold leading-[24px] dark:text-[#cfc5c5] text-[#757575]"
+      >
+        Salom.So'zni hato kiritgan bolishiz yoki siz kiritgan so'z bizzi
+        sayt bomasligi mumkin.Hato kamchilikla uchun uzur sorayman.
+      </p>
+      <h2
+        class=" mb-[24px] max-sm:mb-[14px] max-sm:text-[18px] max-sm:leading-[22px] text-[20px] font-sans font-bold leading-[24px] dark:text-[#ffffff] text-[#2D2D2D]"
+      >
+        Khakimov Abdusattor
+      </h2>
+      <p
+        class="max-sm:text-[14px] max-sm:leading-[20px] text-[18px] font-sans font-bold leading-[24px] dark:text-[#cfc5c5] text-[#757575]"
+      >
+        Sorry pal, we couldn't find definitions for the word you were
+        looking for. You can try the search again at later time or head
+        to the web instead.
+      </p>
+    </div>
+  </div>`;
+        });
+    });
 };
 export default wordFanction;

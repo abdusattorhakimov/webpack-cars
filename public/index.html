@@ -12,7 +12,7 @@
       referrerpolicy="no-referrer"
     />
     <title>dictionary | Exsemen</title>
-  <script defer src="mainc0ec7584c31afcc20bf8.js"></script></head>
+  <script defer src="mainc2c7da6a9b0aa38e4c60.js"></script></head>
   <body class="h-full bg-[#F2F2F2] font-[sans-serif] overflow-x-hidden">
     <header
       class="pt-[58px] pb-[51.5px] max-sm:pt-[24px] max-sm:pb-[24px] dark:bg-[#0a0909]"
@@ -110,10 +110,10 @@
             <input
               id="input"
               class="dark:bg-[#1F1F1F] dark:border-none block w-full max-sm:py-[15px] px-[24px] py-[20px] text-sm text-gray-900 border border-gray-300 rounded-[16px] bg-[#F4F4F4] dark:border-gray-600 dark:placeholder-[#FFFFFF] dark:text-[#FFFFFF]"
-              placeholder="keyboard"
+              placeholder="Search for  any word…"
               required
             />
-            <button id="buttons" type="submit">salom</button>
+
             <div
               class="absolute inset-y-0 right-0 pr-[24px] flex items-center pl-3 pointer-events-none"
             >
@@ -135,22 +135,48 @@
             </div>
           </div>
         </form>
-
-        <!-- //loder
-        <div
-          id="loder"
-          class="flex items-center justify-center fixed top-0 bottom-0 right-0 left-0 bg-slate-400"
-        >
-          <div
-            class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-            role="status"
-          >
-            <span
-              class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
-              >Loading....</span
-            >
+        <div class="relative overflow-y-auto">
+          <div class="maincontainer">
+            <div id="errorDiv" class="text-center pt-[132px] max-sm:pt-[60px]">
+              <img
+                class="w-[64px] h-[64px] max-sm:w-[44px] max-sm:h-[44px] mb-[44px] max-sm:mb-[24px]"
+                src="./images/pnj/😕.png"
+                alt="stiker bor"
+              />
+              <h4
+                class=" mb-[44px] max-sm:mb-[24px] max-sm:text-[18px] max-sm:leading-[22px] text-[20px] font-sans font-bold leading-[24px] dark:text-[#ffffff] text-[#2D2D2D]"
+              >
+                No Definitions Found
+              </h4>
+              <p
+                class="max-sm:text-[14px] max-sm:leading-[20px] text-[18px] font-sans font-bold leading-[24px] dark:text-[#cfc5c5] text-[#757575]"
+              >
+                Salom.So'zni hato kiritgan bolishiz yoki siz kiritgan so'z bizzi
+                sayt bomasligi mumkin.Hato kamchilikla uchun uzur sorayman.
+              </p>
+              <h2 class="max-sm:text-[18px] max-sm:leading-[22px] text-[20px] font-sans font-bold leading-[24px] dark:text-[#ffffff] text-[#2D2D2D]">Khakimov Abdusattor</h2>
+              <p class="max-sm:text-[14px] max-sm:leading-[20px] text-[18px] font-sans font-bold leading-[24px] dark:text-[#cfc5c5] text-[#757575]>
+                Sorry pal, we couldn't find definitions for the word you were
+                looking for. You can try the search again at later time or head
+                to the web instead.
+              </p>
+            </div>
           </div>
-        </div> -->
+          <div
+            id="loder"
+            class="flex items-center justify-center absolute top-[0] bottom-0 right-0 left-0 bg-slate-400"
+          >
+            <div
+              class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+              role="status"
+            >
+              <span
+                class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                >Loading....</span
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </body>
