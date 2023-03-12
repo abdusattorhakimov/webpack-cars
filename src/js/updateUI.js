@@ -70,9 +70,9 @@ const wordFanction = (data) => {
             }
           </ul>
           <ul>
-            <li class="flex gap-[20px] items-center">
+            <li class=" mb-[40px] max-sm:mb-[31px] flex gap-[20px] items-center">
               <h3
-                class=" mb-[40px] max-sm:mb-[31px] max-sm:text-[18px] max-sm:leading-[22px]  text-[24px] font-sans font-bold leading-[29px] dark:text-[#ffffff] text-[#2D2D2D]"
+                class="  max-sm:text-[18px] max-sm:leading-[22px]  text-[24px] font-sans font-bold leading-[29px] dark:text-[#ffffff] text-[#2D2D2D]"
               >
                 <i>    none         </i>
               </h3>
@@ -124,16 +124,16 @@ const wordFanction = (data) => {
           </ul>
         </section>
         <section>
-          <ul class="max-sm:pt-[31px]  pt-[40px] " >
-            <li class=" flex gap-[20px] items-center">
+        
+            <li class=" mb-[40px] max-sm:mb-[31px] flex gap-[20px] items-center">
               <h3
-                class=" mb-[40px] max-sm:mb-[31px] max-sm:text-[18px] max-sm:leading-[22px] dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D] mb-10"
+                class="  max-sm:text-[18px] max-sm:leading-[22px] dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D]"
               >
                 <i> verb </i>
               </h3>
               <div class="w-[656px] dark:bg-[#3A3A3A] h-[1px] bg-[#E9E9E9]"></div>
             </li>
-          </ul>
+          
           <p
             class=" max-sm:mb-[17px] mb-[25px] text-[20px]  font-thin leading-{24px} text-[#757575]"
           >
