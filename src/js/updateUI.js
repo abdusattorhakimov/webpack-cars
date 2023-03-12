@@ -200,6 +200,7 @@ const wordFanction = (data) => {
     });
   sinonim &&
     sinonim.addEventListener("click", () => {
+      input.value = "";
       request(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${sinonim.textContent}`
       )
