@@ -1,26 +1,22 @@
 import request from "./request";
-import { wordFanction } from "./updateUI";
-const formm = document.querySelector('form');
+import wordFanction from "./updateUI";
+
+const formm = document.querySelector("form");
 const input = document.querySelector("#input");
-const button = document.querySelector("#buttons");
 
+let API = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
-formm.addEventListener(
-  "submit",
-  (e) => {
-    e.preventDefault();
-  }
-
-  // console.log("ewjhgrueqwrwq");
-  // const word = input.value;
-  // console.log(word);
-  // API = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
-  // request(API)
-  //   .then((data) => {
-  //     console.log(data);
-  //     wordFanction(data);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
-);
+formm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const word = input.value.trim();
+  request(API + word)
+    .then((data) => {
+      // console.log(data);
+      wordFanction(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+// console.log("ewjhgrueqwrwq");
+// console.log(word);

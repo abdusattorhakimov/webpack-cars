@@ -1,28 +1,57 @@
-const container = document.querySelector("#container");
-console.log(container);
+import "./filter";
 
-export const wordFanction = (words) => {
-  console.log(words);
-  words &&
-    words.forEach((e) => {
-      container.innerHTML += `
+const container = document.querySelector(".maincontainer");
+
+const wordFanction = (data) => {
+  console.log(data);
+  const { word, meanings, sourceUrls } = data[0];
+  console.log(sourceUrls[0]);
+
+  let audio;
+  let text;
+  for (let i = 0; i < data[0].phonetics.length; i++) {
+    if (data[0].phonetics[i].text && data[0].phonetics[i].audio) {
+      audio = data[0].phonetics[i].audio;
+      text = data[0].phonetics[i].text;
+      break;
+    }
+  }
+
+  let noun;
+  let verb;
+  let synonyms;
+  meanings.forEach((item) => {
+    if (item.partOfSpeech == "noun") {
+      noun = item.definitions;
+      synonyms = item.synonyms;
+    }
+    if (item.partOfSpeech == "verb") {
+      verb = item.definitions;
+    }
+  });
+  console.log(synonyms);
+  container.innerHTML = `
     <section>
           <ul class="mb-[40px] max-sm:mb-[29px] flex items-center justify-between">
             <li>
               <h1
                 class="text-[64px] max-sm:text-[32px] max-sm:leading-[39px] font-bold leading-[77px]  text-[#2D2D2D] dark:text-[#ffffff]"
               >
-                ${e.word}
+                ${word}
               </h1>
               <p
                 class="text-[24px] max-sm:text-[18px] max-sm:leading-[24px]  font-thin leading-[29px] text-[#A445ED]"
               >
-                ${e.phonetic}
+              ${text ? text : ""}
               </p>
             </li>
-            <li
+            ${audio ? `<audio  src= ${audio} ></audio>` : ""}
+            ${
+              audio
+                ? `<li id="adiobtn"
               class="mt-[40px] rounded-[50%] max-sm:w-[48px] max-sm:h-[48px] w-[75px] h-[75px] dark:bg-[rgba(164,69,237,0.25)] bg-[rgba(164,69,237,0.6)] flex items-center justify-center"
             >
+           
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -36,14 +65,16 @@ export const wordFanction = (words) => {
                   clip-rule="evenodd"
                 />
               </svg>
-            </li>
+            </li>`
+                : ""
+            }
           </ul>
           <ul>
             <li class="flex gap-[20px] items-center">
               <h3
                 class=" max-sm:text-[18px] max-sm:leading-[22px] text-[24px] font-sans font-bold leading-[29px] dark:text-[#ffffff] text-[#2D2D2D]"
               >
-                <i> ${e.meanings[0].partOfSpeech}</i>
+                <i>    none         </i>
               </h3>
               <div class="w-[656px] h-[1px] dark:bg-[#3A3A3A] bg-[#E9E9E9]"></div>
             </li>
@@ -54,41 +85,19 @@ export const wordFanction = (words) => {
             Meaning
           </p>
           <ul class="max-sm:ml-[0px] max-sm:mb-[20px] ml-[23px] mb-[64px]">
-            <li class="mb-[13px] flex gap-[20px] rounded-[100%]">
-              <span
-                class="mt-[13px] w-[7px] h-[7px] bg-[#8F19E8] rounded-[100%]"
-              ></span>
-
-              <p
-                class=" max-sm:text-[15px]  text-[18px] font-thin leading-[24px] dark:text-[#ffffff] text-[#2D2D2D]"
-              >
-                ${e.meanings[0].definitions[0].definition} 
-              </p>
-            </li>
-            <li class="mb-[13px] flex gap-[20px]">
-              <div class="mt-[11px]">
+          ${noun.slice(0, 3).map((item) => {
+            return `<li class="mb-[13px] flex gap-[20px] rounded-[100%]">
                 <span
-                  class="w-[7px] h-[7px] block bg-[#8F19E8] rounded-[100%]"
+                  class="mt-[13px] w-[7px] h-[7px] bg-[#8F19E8] rounded-[100%]"
                 ></span>
-              </div>
-              <p
-                class=" max-sm:text-[15px] text-[18px]  font-thin leading-{24px} dark:text-[#ffffff] text-[#2D2D2D]"
-              >
-              ${e.meanings[0].definitions[1].definition} 
-              </p>
-            </li>
-            <li class="mb-[13px] flex gap-[20px]">
-              <div class="mt-[11px]">
-                <span
-                  class="w-[7px] h-[7px] block bg-[#8F19E8] rounded-[100%]"
-                ></span>
-              </div>
-              <p
-                class="max-sm:text-[15px] text-[18px]  font-thin leading-[24px] dark:text-[#ffffff] text-[#2D2D2D]"
-              >
-              ${e.meanings[0].definitions[2].definition} 
-              </p>
-            </li>
+  
+                <p
+                  class=" max-sm:text-[15px]  text-[18px] font-thin leading-[24px] dark:text-[#ffffff] text-[#2D2D2D]"
+                >
+                  ${item.definition ? item.definition : ""}
+                </p>
+              </li>`;
+          })}
           </ul>
           <ul class="flex gap-[22px] max-sm:mb-[33px] mb-[40px]">
             <li>
@@ -98,22 +107,29 @@ export const wordFanction = (words) => {
                 Synonyms
               </p>
             </li>
-            <li>
+            ${synonyms.slice(0, 2).map((item) => {
+              console.log(item);
+              return ` 
+              <li class="flex gap-1">
               <p
-                class="max-sm:text-[16px] max-sm:leading-[19px] text-[20px]  font-bold leading-[4px] text-[#A445ED]"
-              >
-              ${e.meanings[0].synonyms}   
-              </p>
+              class="max-sm:text-[16px] max-sm:leading-[19px] text-[20px]  fl font-bold leading-[4px] text-[#A445ED]"
+            >
+            ${item ? item : ""}
+            </p>
+            
             </li>
+            `;
+            })}
+             
           </ul>
         </section>
         <section>
-          <ul class="max-sm:mt-[31px]  mt-[40px] bg-black" >
+          <ul class="max-sm:pt-[31px]  pt-[40px] " >
             <li class=" flex gap-[20px] items-center">
               <h3
                 class="max-sm:text-[18px] max-sm:leading-[22px] dark:text-[#ffffff] text-[24px] font-sans font-bold leading-{29px} text-[#2D2D2D]"
               >
-                <i>${e.meanings[0].partOfSpeech}  </i>
+                <i> verb </i>
               </h3>
               <div class="w-[656px] dark:bg-[#3A3A3A] h-[1px] bg-[#E9E9E9]"></div>
             </li>
@@ -124,18 +140,22 @@ export const wordFanction = (words) => {
             Meaning
           </p>
           <ul class="max-sm:mb-[32px] ml-[23px] mb-[40px]">
-            <li
-              class="mb-[20px] flex gap-[20px] text-[18px]  font-thin leading-{24px} text-[#2D2D2D]"
-            >
-              <span
-                class="mt-[11px] w-[7px] h-[7px] block bg-[#8F19E8] rounded-[100%]"
-              ></span>
-              <p class="max-sm:text-[15px]  dark:text-[#ffffff]">${e.meanings[0].definitions[0].definition} <br>
+          ${verb.slice(0, 3).map((item) => {
+            return `<li
+            class="mb-[20px] flex gap-[20px] text-[18px]  font-thin leading-{24px} text-[#2D2D2D]"
+          >
+            <span
+              class="mt-[11px] w-[7px] h-[7px] block bg-[#8F19E8] rounded-[100%]"
+            ></span>
+            <p class="max-sm:text-[15px]  dark:text-[#ffffff]">
+           ${item.definition ? item.definition : ""}<br>
 
-              <span class= "max-sm:text-[15px] dark:text-[#353333]">${e.meanings[0].definitions[0].example}</span>
-              </p>
-              
-            </li>
+            <span class= "max-sm:text-[15px] dark:text-[#353333]">
+            ${item.example ? item.example : ""}</span>
+            </p>
+            
+          </li>`;
+          })}
           </ul>
           <div class= "max-sm:mb-[24px]  max-w-[656px] h-[1px] dark:bg-[#3A3A3A] bg-[#E9E9E9] mb-[20px]"></div>
           <ul class="flex pb-[120px] max-sm:pb-[85px] gap-[20px] max-sm:flex-none max-sm:flex-col">
@@ -149,11 +169,11 @@ export const wordFanction = (words) => {
             <li class="underline flex gap-[20px] items-center">
               <a
                 class="max-sm:text-[14px] max-sm:leading-[17px] dark:text-[#ffffff] px-[4px] text-[14px] font-sans font-thin leading-{17px} text-[#2D2D2D]"
-                href="${e.sourceUrls[0]}"
-                >${e.sourceUrls[0]}</a
+                href="${sourceUrls[0]}"
+                >${sourceUrls[0]}</a
               >
-              <a href=""
-                ><svg
+              <a href="${sourceUrls[0]}"
+                >  <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
                   height="14"
@@ -168,5 +188,10 @@ export const wordFanction = (words) => {
           </ul>
         </section>
     `;
-    });
+  const audioEl = document.querySelector("#adiobtn");
+  const audioo = document.querySelector("audio");
+  audioEl.addEventListener("click", (e) => {
+    audioo.play();
+  });
 };
+export default wordFanction;

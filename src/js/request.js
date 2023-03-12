@@ -1,5 +1,5 @@
 // import toggleLoder from "./loder";
-import { wordFanction } from "./updateUI";
+
 const request = async (ret) => {
   //    toggleLoder(true)
   const req = await fetch(ret);
@@ -9,7 +9,8 @@ const request = async (ret) => {
   const data = await req.json();
   //   toggleLoder(false)
   //   console.log(data);
-  wordFanction(data);
+  return data;
+  // wordFanction(data);
 };
 
 export default request;
