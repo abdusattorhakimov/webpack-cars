@@ -1,14 +1,14 @@
-// const loder=document.querySelector("#loder")
-// console.log(loder);
+const loder = document.querySelector("#loder");
+console.log(loder);
 
-// const toggleLoder= function (info){
-//     if(info){
-//         loder.classList.remove("hidden")
-//     }else{
-//         loder.classList.add("hidden")
-//     }
-// }
-// export default toggleLoderf
+const toggleLoder = function (info) {
+  if (info) {
+    loder.classList.remove("hidden");
+  } else {
+    loder.classList.add("hidden");
+  }
+};
+export default toggleLoder;
 const selects = document.querySelector("#countries");
 const option = document.querySelectorAll(".option");
 const body = document.body;
